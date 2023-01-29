@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection.PortableExecutable;
 
 namespace Library_Console;
 
@@ -89,12 +90,44 @@ class Program
         static void AdminMenu()
         {
             Console.WriteLine("Admin Main menu");
+            Console.WriteLine("Current books available:");
+            //считывание списка книг из текстового файла
+            string path = "/Users/fetaniz/Desktop/Study/C#/Git/Library_Console/Library_Console/Books.txt";
+            using (StreamReader reader = new StreamReader(path))
+            {
+                string? line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    //вывод книг построчно. Информация о книгах разделена запятыми
+                    var creds = line.Split(',');
+                    Console.WriteLine("Title: " + creds[0] + ", Author: " + creds[1]+", Code: " + creds[2]+", Description: " + creds[3]+", Status: " + creds[4]);
+                }
+                reader.Close();
+            }
+            Console.Read();
+
             Console.Read();
         }
         //пользовательское меню
         static void UserMenu()
         {
             Console.WriteLine("User Main menu");
+            //чтение пользователей
+            string path = "/Users/fetaniz/Desktop/Study/C#/Git/Library_Console/Library_Console/Guest_Info.txt";
+            using (StreamReader reader = new StreamReader(path))
+            {
+                string? line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    //приветсвуем пользователя и выводим его информацию
+                    var creds = line.Split(',');
+                    Console.WriteLine("Welcome, "+creds[0]+" " + creds[1]);
+                    Console.WriteLine("Your Reading Ticket is " + creds[2]);
+                    Console.WriteLine("Your have " + creds[3]+" books on hand");
+                    Console.WriteLine("Your took " + creds[4]+" books");
+                }
+                reader.Close();
+            }
             Console.Read();
         }
 

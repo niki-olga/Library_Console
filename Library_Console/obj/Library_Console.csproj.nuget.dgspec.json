@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/fetaniz/Desktop/Study/C#/Library_Console/Library_Console/Library_Console.csproj": {}
+    "/Users/fetaniz/Desktop/Study/C#/Git/Library_Console/Library_Console/Library_Console.csproj": {}
   },
   "projects": {
-    "/Users/fetaniz/Desktop/Study/C#/Library_Console/Library_Console/Library_Console.csproj": {
+    "/Users/fetaniz/Desktop/Study/C#/Git/Library_Console/Library_Console/Library_Console.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/fetaniz/Desktop/Study/C#/Library_Console/Library_Console/Library_Console.csproj",
+        "projectUniqueName": "/Users/fetaniz/Desktop/Study/C#/Git/Library_Console/Library_Console/Library_Console.csproj",
         "projectName": "Library_Console",
-        "projectPath": "/Users/fetaniz/Desktop/Study/C#/Library_Console/Library_Console/Library_Console.csproj",
+        "projectPath": "/Users/fetaniz/Desktop/Study/C#/Git/Library_Console/Library_Console/Library_Console.csproj",
         "packagesPath": "/Users/fetaniz/.nuget/packages/",
-        "outputPath": "/Users/fetaniz/Desktop/Study/C#/Library_Console/Library_Console/obj/",
+        "outputPath": "/Users/fetaniz/Desktop/Study/C#/Git/Library_Console/Library_Console/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/fetaniz/.nuget/NuGet/NuGet.Config"

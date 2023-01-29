@@ -16,16 +16,19 @@ class Program
 
         if (input == "Log")
         {
+            //переход к логину
             Console.Clear();
             Login();
         }
         else if (input == "Reg")
         {
+            //переход к регистрации
             Console.Clear();
             Reg();
         }
         else
         {
+            //если не совпадает, то просьба попробовать сначала
             Console.WriteLine("Press any button to try again");
             Console.ReadKey();
             Console.Clear();
@@ -36,6 +39,7 @@ class Program
     {
         //путь к файлу с логинами
         string path = "/Users/fetaniz/Desktop/Study/C#/Library_Console/Library_Console/Login_List.txt";
+        //ввод логина и пароля с клавиатуры
         Console.Write("Username: ");
         string? username = Console.ReadLine();
         Console.Write("Password: ");
@@ -57,7 +61,7 @@ class Program
             }
             reader.Close();
         }
-
+        //при успешном логине и наличие в логине admin, заходим в меню админов
         if (loginSuccessful && username.Contains("admin"))
         {
             Console.WriteLine("Admin Login Successful! Press any key to continue...");
@@ -65,6 +69,7 @@ class Program
             Console.Clear();
             AdminMenu();
         }
+        //аналогично с админами, но пользовательское меню
         else if (loginSuccessful && username.Contains("user"))
         {
             Console.WriteLine("User Login Successful! Press any key to continue...");
@@ -72,6 +77,7 @@ class Program
             Console.Clear();
             UserMenu();
         }
+        //если нет совпадений, то просьба заново ввести логин и пароль
         else
         {
             Console.WriteLine("Username or password is incorrect. Try again");
@@ -79,13 +85,13 @@ class Program
             Console.Clear();
             Login();
         }
-
+        //админское меню
         static void AdminMenu()
         {
             Console.WriteLine("Admin Main menu");
             Console.Read();
         }
-
+        //пользовательское меню
         static void UserMenu()
         {
             Console.WriteLine("User Main menu");
@@ -93,9 +99,12 @@ class Program
         }
 
     }
+    //окно регитсрации
     public static void Reg()
     {
+        //считывание пути к файлу с логин-паролями
         string path = "/Users/fetaniz/Desktop/Study/C#/Library_Console/Library_Console/Login_List.txt";
+        //считывание имени,фамилии,логина и пароля с клавиатуры
         Console.WriteLine("Enter your First name: ");
         string? firstname = Console.ReadLine();
         Console.WriteLine("Enter your Second name: ");
@@ -105,8 +114,10 @@ class Program
         Console.WriteLine("Enter your password: ");
         string? password = Console.ReadLine();
 
+        //создание новой персоны с данными выше
         Person newPerson = new Person(firstname, secondname, username, password);
 
+        //добавление персоны с введенными данными в файл с логин-паролями
         using (StreamReader reader = new StreamReader(path))
         {
             while (!reader.EndOfStream)
@@ -116,12 +127,9 @@ class Program
                     writer.WriteLine(newPerson.ToString());
                 }
                 break;
-
             }
-
             reader.Close();
         }
-
         Console.Read();
     }
 }

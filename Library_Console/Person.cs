@@ -31,7 +31,7 @@ class Person
     {
         int max_id = 0;
         string[] lines = File.ReadLines(path).ToArray();
-        for (int i = 0; i < lines.Length-1; i++)
+        for (int i = 0; i < lines.Length; i++)
         {
             if (lines[i][0] > max_id)
             {
@@ -41,40 +41,10 @@ class Person
         return max_id;
     }
 
-    public int get_id()
-    {
-        return this.ID;
-    }
-
-    public void set_id(int new_id)
-    {
-        string[] lines = File.ReadLines(path).ToArray();
-        for (int i = 0; i < lines.Length-1; i++)
-        {
-            if (lines[i][0] == this.ID)
-            {
-                throw new Exception("такой id уже занят");
-            }
-        }
-        for (int i = 0; i < lines.Length-1; i++)
-        {
-            if (lines[i][0] == this.ID)
-            {
-                lines[i][0] = new_id;
-
-            }
-        }
-    }
-
-
-
-
 
     public override string ToString()
     {
-        return "" + this.ID + "," + FirstName + "," + SecondtName + "," + UserLogin + "," + UserPassword;
+        return "" + ID + "," + FirstName + "," + SecondtName + "," + UserLogin + "," + UserPassword;
     }
 
 }
-
-
